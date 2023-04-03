@@ -51,6 +51,22 @@ router.post(
 //UPDATE your password
 router.put(
     "/update-password",
+    tokenMiddleware.auth,
+    body("password")
+      .exists().withMessage("password is required")
+      .isLength({ min: 8 }).withMessage("password minimum 8 characters"),
+    body("newPassword")
+      .exists().withMessage("newPassword is required")
+      .isLength({ min: 8 }).withMessage("newPassword minimum 8 characters"),
+    body("confirmNewPassword")
+      .exists().withMessage("confirmNewPassword is required")
+      .isLength({ min: 8 }).withMessage("confirmNewPassword minimum 8 characters")
+      .custom((value, { req }) => {
+        if (value !== req.body.newPassword) throw new Error("confirmNewPassword not match");
+        return true;
+      }),
+    requestHandler.validate,
+    userController.updatePassword
 );
 
 //Get Information of Profile
@@ -70,6 +86,21 @@ router.get(
 //Add favorites to list
 router.post(
     "/favorites",
+    tokenMiddleware.auth,
+    body("mediaType")
+      .exists().withMessage("mediaType is required")
+      .custom(type => ["movie", "tv"].includes(type)).withMessage("mediaType invalid"),
+    body("mediaId")
+      .exists().withMessage("mediaId is required")
+      .isLength({ min: 1 }).withMessage("mediaId can not be empty"),
+    body("mediaTitle")
+      .exists().withMessage("mediaTitle is required"),
+    body("mediaPoster")
+      .exists().withMessage("mediaPoster is required"),
+    body("mediaRate")
+      .exists().withMessage("mediaRate is required"),
+    requestHandler.validate,
+    favoriteController.addFavorite
 );
 
 //Delete from Favorites list
