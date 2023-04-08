@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import MainLayout from './components/layout/MainLayout.jsx';
 
 
 
@@ -7,9 +8,9 @@ function App() {
 
   return (
     <div className="App">
-      hello world
+      <MainLayout />
     </div>
   )
 }
 
-export default App
+export default App;
