@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
 import { Paper, Box, LinearProgress, Toolbar } from "@mui/material";
 import { useEffect, useState } from "react";
+import Logo from "./Logo.jsx";
 
 const GlobalLoading = () => {
-    const { GlobalLoading } = useSelector((state) => state.globalLoading);
+    const { globalLoading } = useSelector((state) => state.globalLoading);
 
     const [isLoading, setIsLoading] = useState(false);
 
