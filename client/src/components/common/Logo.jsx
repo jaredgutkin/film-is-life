@@ -9,3 +9,5 @@ const Logo = () => {
         </Typography>
     );
 };
+
+export default Logo;
