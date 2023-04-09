@@ -1,3 +1,4 @@
+import React from "react";
 import HomePage from "../pages/HomePage.jsx";
 import PersonDetail from "../pages/PersonDetail.jsx";
 import FavoriteList from "../pages/FavoriteList.jsx";
