@@ -36,7 +36,6 @@ const MainLayout = () => {
 
   return (
     <>
-    hi
       {/* global loading */}
       {/* <GlobalLoading /> */}
       {/* global loading */}
