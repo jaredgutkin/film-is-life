@@ -4,16 +4,10 @@ import Footer from "../common/Footer.jsx";
 import GlobalLoading from "../common/GlobalLoading.jsx";
 import Topbar from "../common/Topbar.jsx";
 // import AuthModal from "../common/AuthModal.jsx";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { toast } from "react-toastify";
-import userApi from "../../api/modules/userApi.js";
-import favoriteApi from "../../api/modules/favoriteApi.js";
-import { setListFavorites, setUser } from "../../redux/features/userSlice.js";
 import React from "react";
 
 const MainLayout = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // const { user } = useSelector((state) => state.user);
 
@@ -42,8 +36,9 @@ const MainLayout = () => {
 
   return (
     <>
+    hi
       {/* global loading */}
-      <GlobalLoading />
+      {/* <GlobalLoading /> */}
       {/* global loading */}
 
       {/* login modal */}

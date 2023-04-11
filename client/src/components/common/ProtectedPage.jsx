@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAuthModalOpen } from "../../redux/features/authModalSlice.js";
+import { setAuthModalOpen } from "../../redux/features/authModalSlice.jsx";
 
 const ProtectedPage = () => {
     const dispatch = useDispatch();
@@ -16,4 +16,4 @@ const ProtectedPage = () => {
   );
 };
 
-export default ProtectedPage
+export default ProtectedPage;

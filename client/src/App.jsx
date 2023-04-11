@@ -18,7 +18,9 @@ const App = () => {
   const { themeMode } = useSelector((state) => state.themeMode);
 
   return (
-    <MainLayout />
+    <BrowserRouter>
+      <MainLayout />
+    </BrowserRouter>
   );
 };
 

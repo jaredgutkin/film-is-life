@@ -8,7 +8,7 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 
 import { themeModes } from "../../configs/themeConfigs.js";
-import { setThemeMode } from "../../redux/features/themeModeSlice.js";
+import { setThemeMode } from "../../redux/features/themeModeSlice.jsx";
 
 const Sidebar = () => {
 
