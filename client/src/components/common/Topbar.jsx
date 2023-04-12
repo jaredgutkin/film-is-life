@@ -1,16 +1,16 @@
 import { useSelector, useDispatch } from "react-redux";
 import MenuIcon from "@mui/icons-material/Menu";
-import DarkModeOutlined from "@mui/icons-material/DarkModeOutlined";
-// import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined;";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import { AppBar, Box, Button, IconButton, ListItem, Stack, Toolbar, useScrollTrigger } from "@mui/material";
 import { cloneElement, useState } from "react";
-// import Link from "react-router-dom";
+import { Link } from "react-router-dom";
 import menuConfigs from "../../configs/menuConfigs.js";
 import { themeModes } from "../../configs/themeConfigs.js";
 import { setAuthModalOpen } from "../../redux/features/authModalSlice.jsx";
 import { setThemeMode } from "../../redux/features/themeModeSlice.jsx";
 import Logo from "./Logo.jsx";
-// import UserMenu from "./UserMenu.jsx";
+import UserMenu from "./UserMenu.jsx";
 import Sidebar from "./Sidebar.jsx";
 
 const ScrollAppBar = ({children, window}) => {
@@ -69,28 +69,49 @@ const Topbar = () => {
 
                         {/* main menu */}
                         <Box flexGrow={1} alignItems="center" display={{ xs: "none", md: "flex" }}>
-                            <Box sx={{ marginRight: "30px" }}>
-                                <Logo />
-                            </Box>
-                            <Button>
-                                
+                        <Box sx={{ marginRight: "30px" }}>
+                            <Logo />
+                        </Box>
+                        {menuConfigs.main.map((item, index) => (
+                            <Button
+                            key={index}
+                            sx={{
+                                color: appState.includes(item.state) ? "primary.contrastText" : "inherit",
+                                mr: 2
+                            }}
+                            component={Link}
+                            to={item.path}
+                            variant={appState.includes(item.state) ? "contained" : "text"}
+                            >
+                            {item.display}
                             </Button>
-                            <IconButton>
-
-                            </IconButton>
+                        ))}
+                        <IconButton
+                            sx={{ color: "inherit" }}
+                            onClick={onSwitchTheme}
+                        >
+                            {themeMode === themeModes.dark && <DarkModeOutlinedIcon />}
+                            {themeMode === themeModes.light && <WbSunnyOutlinedIcon />}
+                        </IconButton>
                         </Box>
                         {/* main menu */}
 
-                        {/*user menu*/}
-                        <Stack>
-                            <Button></Button>
+                        {/* user menu */}
+                        <Stack spacing={3} direction="row" alignItems="center">
+                        {!user && <Button
+                            variant="contained"
+                            onClick={() => dispatch(setAuthModalOpen(true))}
+                        >
+                            sign in
+                        </Button>}
                         </Stack>
-                        {/*user menu*/}
+                        {user && <UserMenu />}
+                        {/* user menu */}
                     </Toolbar>
-                </AppBar>
-            </ScrollAppBar>
-        </>
-    );
-};
+                    </AppBar>
+                </ScrollAppBar>
+                </>
+            );
+        };
 
 export default Topbar;
