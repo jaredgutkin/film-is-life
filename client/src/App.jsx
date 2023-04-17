@@ -18,9 +18,27 @@ const App = () => {
   const { themeMode } = useSelector((state) => state.themeMode);
 
   return (
-    <BrowserRouter>
-      <MainLayout />
-    </BrowserRouter>
+    <ThemeProvider theme={themeConfigs.custom({ mode: themeMode})}>
+        {/* config toastify */}
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnFocusLoss
+        pauseOnHover
+        theme={themeMode}
+      />
+      {/* mui reset css */}
+      <CssBaseline />
+      
+      <BrowserRouter>
+        <MainLayout />
+      </BrowserRouter>
+
+    </ThemeProvider>
+
   );
 };
 
