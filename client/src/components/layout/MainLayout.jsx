@@ -3,8 +3,8 @@ import { Outlet } from "react-router-dom";
 import Footer from "../common/Footer.jsx";
 import GlobalLoading from "../common/GlobalLoading.jsx";
 import Topbar from "../common/Topbar.jsx";
-// import AuthModal from "../common/AuthModal.jsx";
-import React from "react";
+import AuthModal from "../common/AuthModal.jsx";
+
 
 const MainLayout = () => {
   // const dispatch = useDispatch();
@@ -41,7 +41,7 @@ const MainLayout = () => {
       {/* global loading */}
 
       {/* login modal */}
-      {/* <AuthModal /> */}
+      <AuthModal />
       {/* login modal */}
 
       <Box display="flex" minHeight="100vh">

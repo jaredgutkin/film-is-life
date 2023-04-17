@@ -13,7 +13,7 @@ const actionState = {
 
 const AuthModal = () => {
 
-  const { setAuthModalOpen } = useSelector((state) => state.authModal);
+  const { authModalOpen } = useSelector((state) => state.authModal);
 
   const dispatch = useDispatch();
 
