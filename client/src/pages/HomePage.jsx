@@ -9,7 +9,7 @@ const HomePage = () => {
       <HeroSlide mediaType={tmdbConfigs.mediaType.movie} mediaCategory={tmdbConfigs.mediaCategory.popular} />
 
       <Box marginTop="-4rem" sx={{ ...uiConfigs.style.mainContent }}>
-        {/* <Container header="popular movies">
+        <Container header="popular movies">
           <MediaSlide mediaType={tmdbConfigs.mediaType.movie} mediaCategory={tmdbConfigs.mediaCategory.popular} />
         </Container>
 
@@ -23,7 +23,7 @@ const HomePage = () => {
 
         <Container header="top rated series">
           <MediaSlide mediaType={tmdbConfigs.mediaType.tv} mediaCategory={tmdbConfigs.mediaCategory.top_rated} />
-        </Container> */}
+        </Container>
       </Box>
     </>
   );
