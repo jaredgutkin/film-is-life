@@ -1,4 +1,4 @@
-import LogOutlinedIcon from "@mui/icons-material/LoginOutlined";
+import LogoutOutlinedIcon from "@mui/icons-material/LoginOutlined";
 import { ListItemButton, ListItemIcon, ListItemText, Menu, Typography } from "@mui/material";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
